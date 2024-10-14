@@ -73,6 +73,7 @@ public class Picture
         ground.makeVisible();  
         
         moveSunset();
+        amanecer();
     }
     
 
@@ -106,10 +107,21 @@ public class Picture
     
     public void moveSunset() {
         
-        for (int i = 0; i < 100; i++) {  
+        for (int i = 0; i < 80; i++) {  
             sun.slowMoveVertical(2); 
         }
         
+        sun.makeInvisible();
         moon.makeVisible();
+        Canvas.getCanvas().wait(2000);
     } 
+    
+    public void amanecer() {
+        moon.makeInvisible();
+        sun.makeVisible();
+        for (int i = 0; i < 90; i++) {
+            sun.slowMoveVertical(-2);
+        }
+        
+    }
 }
