@@ -49,21 +49,6 @@ public class Picture
         roof.moveHorizontal(20);
         roof.moveVertical(-60);
         roof.makeVisible();
-
-        sun = new Circle();
-        sun.changeColor("yellow");
-        sun.moveHorizontal(100);
-        sun.moveVertical(-80);
-        sun.changeSize(80);
-        sun.makeVisible();
-        
-        moon = new Circle();
-        moon.changeColor("magenta");
-        moon.makeVisible();
-        moon.moveHorizontal(-130);
-        moon.moveVertical(-10);
-        moon.changeSize(40);
-        moon.makeInvisible();
         
         ground = new Square();
         ground.moveVertical(110);
@@ -71,6 +56,25 @@ public class Picture
         ground.changeColor("green");
         ground.changeSize(800);  
         ground.makeVisible();  
+    
+        sun = new Circle();
+        sun.makeVisible();
+        sun.changeColor("yellow");
+        sun.moveHorizontal(100);
+        sun.moveVertical(10); // Posición visible pero baja
+        sun.changeSize(80);
+        sun.slowMoveVertical(200);
+        
+        moon = new Circle();
+        moon.changeColor("magenta");
+        moon.moveHorizontal(-130);
+        moon.moveVertical(-10);
+        moon.changeSize(40);
+        moon.makeVisible();
+        
+        // Mover el sol hacia abajo para simular el atardecer
+        sun.slowMoveVertical(150); // Mueve el sol hacia abajo (simulando el atardecer)
+        // Hace visible la luna después del atardecer
     }
     
 
@@ -102,30 +106,12 @@ public class Picture
         }
     }
     
-    public void moveSunset() {
-        
-        draw();
-        
-        for (int i = 0; i < 80; i++) {  
-            sun.slowMoveVertical(2); 
-        }
-        
-        sun.makeInvisible();
-        moon.makeVisible();
-        
-    } 
     
     public void amanecer() { 
-        draw();
-        if(moon != null && sun != null) {
-            moon.makeInvisible();
-            sun.makeVisible();
-        }
-            sun.moveVertical(180);
-        for (int i = 0; i < 180; i++) {
-            sun.slowMoveVertical(-2);
-        }
+        // La luna se hace invisible
+        moon.makeInvisible();
         
-    }    
-    
+        // El sol se mueve hacia arriba lentamente para simular el amanecer
+        sun.slowMoveVertical(-350); // Mueve el sol en pasos pequeños para que el movimiento sea visible
+    }
 }
