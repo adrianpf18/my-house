@@ -105,24 +105,24 @@ public class Picture
     public void moveSunset() {
         
         draw();
+        
         for (int i = 0; i < 80; i++) {  
             sun.slowMoveVertical(2); 
         }
         
         sun.makeInvisible();
         moon.makeVisible();
-        Canvas.getCanvas().wait(2000);
+        
     } 
     
-    public void amanecer() {
-        
-        draw(); 
+    public void amanecer() { 
+        draw();
         if(moon != null && sun != null) {
             moon.makeInvisible();
             sun.makeVisible();
         }
-            
-        for (int i = 0; i < 90; i++) {
+            sun.moveVertical(180);
+        for (int i = 0; i < 180; i++) {
             sun.slowMoveVertical(-2);
         }
         
