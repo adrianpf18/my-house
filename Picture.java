@@ -17,6 +17,8 @@ public class Picture
     private Circle sun;
     private Circle moon;
     private Square ground;
+    private Person juan;
+    private Person maria;
 
     /**
      * Constructor for objects of class Picture
@@ -75,6 +77,7 @@ public class Picture
         // Mover el sol hacia abajo para simular el atardecer
         sun.slowMoveVertical(150); // Mueve el sol hacia abajo (simulando el atardecer)
         // Hace visible la luna después del atardecer
+        
     }
     
 
@@ -112,6 +115,23 @@ public class Picture
         moon.makeInvisible();
         
         // El sol se mueve hacia arriba lentamente para simular el amanecer
-        sun.slowMoveVertical(-350); // Mueve el sol en pasos pequeños para que el movimiento sea visible
+        sun.slowMoveVertical(-350);
+        // Mueve el sol en pasos pequeños para que el movimiento sea visible
+        
+        //Justo despues del moviemiento del sol:
+         
+        juan = new Person();
+        juan.moveHorizontal(-140);
+        juan.moveVertical(30);
+        juan.makeVisible();
+        juan.slowMoveHorizontal(100);
+        
+        maria = new Person();
+        maria.moveHorizontal(250);
+        maria.moveVertical(30);
+        maria.makeVisible();
+        maria.slowMoveHorizontal(-150);
+        
+        
     }
 }
